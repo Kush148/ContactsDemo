@@ -11,6 +11,8 @@
         android:id="@+id/etSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_baseline_person_search_24"
+        android:drawablePadding="5dp"
         android:hint="@string/search"
         android:importantForAutofill="no"
         android:inputType="text" />
@@ -29,9 +31,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="14dp"
+        android:backgroundTint="@color/white"
         android:contentDescription="@string/new_contact"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_baseline_add_24"
-        android:tint="@color/white"
         app:elevation="6dp"
         app:fabSize="normal" />
 

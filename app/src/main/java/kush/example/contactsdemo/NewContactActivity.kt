@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -86,12 +87,12 @@ class NewContactActivity : AppCompatActivity() {
         }
 
         btnSave.setOnClickListener {
-            updateContact()
+            if (isValidEmail() && isValidPhoneNumber()) this.updateContact()
         }
 
-        btnCancel.setOnClickListener({
+        btnCancel.setOnClickListener {
             finish()
-        })
+        }
 
     }
 
@@ -126,7 +127,7 @@ class NewContactActivity : AppCompatActivity() {
             requestBodyImage = RequestBody.create(MediaType.parse("image/*"), file)
         }
 
-        val requestBodyFristName =
+        val requestBodyFirstName =
             RequestBody.create(MediaType.parse("text/plain"), et_fname.text.toString().trim())
         val requestBodyLastName =
             RequestBody.create(MediaType.parse("text/plain"), et_lname.text.toString().trim())
@@ -143,7 +144,7 @@ class NewContactActivity : AppCompatActivity() {
                     .updateContact(
                         requestBodyId,
                         requestBodyImage,
-                        requestBodyFristName,
+                        requestBodyFirstName,
                         requestBodyLastName,
                         requestBodyPhoneNo,
                         requestBodyEmail,
@@ -152,7 +153,7 @@ class NewContactActivity : AppCompatActivity() {
                 RetrofitClient.getClient()
                     .addContact(
                         requestBodyImage,
-                        requestBodyFristName,
+                        requestBodyFirstName,
                         requestBodyLastName,
                         requestBodyPhoneNo,
                         requestBodyEmail,
@@ -182,6 +183,39 @@ class NewContactActivity : AppCompatActivity() {
                     .show()
             }
         })
+    }
+
+
+    private fun isValidEmail(): Boolean {
+        email = et_email.text.toString().trim { it <= ' ' }
+        return if (email!!.isEmpty()) {
+            et_email.requestFocus()
+            et_email.error = "Email can't be empty"
+            false
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email.toString()).matches()) {
+            et_email.requestFocus()
+            et_email.error = "Please enter a valid email address"
+            false
+        } else {
+            et_email.error = null
+            true
+        }
+    }
+
+    private fun isValidPhoneNumber(): Boolean {
+        phoneNo = et_phone.text.toString().trim { it <= ' ' }
+        return if (phoneNo!!.isEmpty()) {
+            et_phone.requestFocus()
+            et_phone.error = "Email can't be empty"
+            false
+        } else if (!Patterns.PHONE.matcher(phoneNo.toString()).matches()) {
+            et_phone.requestFocus()
+            et_phone.error = "Please enter a valid email address"
+            false
+        } else {
+            et_phone.error = null
+            true
+        }
     }
 
 }
