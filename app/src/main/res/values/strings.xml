@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ContactsDemo</string>
+    <string name="search">Search</string>
+    <string name="new_contact">New contact</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email address</string>
+    <string name="mobile_number">Mobile number</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_button">Delete Button</string>
+    <string name="share_button">Share Button</string>
 </resources>

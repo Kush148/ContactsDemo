@@ -54,6 +54,11 @@ class NewContactActivity : AppCompatActivity() {
                     }
 
                     override fun onPermissionDenied(response: PermissionDeniedResponse) {
+                        Toast.makeText(
+                            this@NewContactActivity,
+                            "Can't Open Gallery",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
 
                     override fun onPermissionRationaleShouldBeShown(

@@ -28,25 +28,25 @@
                 android:id="@+id/tv_fname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="First Name" />
+                android:hint="@string/first_name" />
 
             <TextView
                 android:id="@+id/tv_lname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Last Name" />
+                android:hint="@string/last_name" />
 
             <TextView
                 android:id="@+id/tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Email address" />
+                android:hint="@string/email_address" />
 
             <TextView
                 android:id="@+id/tv_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Mobile number" />
+                android:hint="@string/mobile_number" />
         </LinearLayout>
 
         <LinearLayout
@@ -60,6 +60,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:contentDescription="@string/delete_button"
                 android:src="@drawable/ic_baseline_delete_24" />
 
             <ImageView
@@ -68,6 +69,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="2dp"
+                android:contentDescription="@string/share_button"
                 android:src="@drawable/ic_baseline_share_24" />
         </LinearLayout>
 
