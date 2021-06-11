@@ -45,7 +45,6 @@ class NewContactActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_contact)
 
-
         civ_profile.setOnClickListener {
             Dexter.withContext(this)
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
